@@ -1,0 +1,58 @@
+body{
+    background-color: black;
+}
+#movie{
+    background-color: black;
+    height: 45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+}
+.movie-component{
+    padding-top: 1rem;
+    border: 1px solid black;
+    background-color: rgb(56, 56, 75);
+    height: 42rem;
+    width: 25rem;
+    border-radius: 20px;
+    display:flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    align-items: center;
+    overflow: scroll;
+    flex-wrap: wrap;
+
+}
+.list{
+    border-bottom: 1px solid rgb(125, 124, 124);
+    width: 22rem;
+    height: 5rem;
+    display: flex;
+    padding: 0.5rem;
+    gap: 1rem;
+}
+#list-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#list-img img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap');
+#move-name-year{
+    color: white;
+    font-family: "Aleo", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
