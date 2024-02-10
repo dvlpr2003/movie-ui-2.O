@@ -12,9 +12,17 @@ function App(){
 }
 useEffect(
   function(){
-    fetch(`http://www.omdbapi.com/?apikey=530cd181&s=${SearchValue}`)
-    .then((res)=>res.json())
-    .then((data)=>setSeries(data.Search))
+    async function fetchMovie(){
+      try{
+        const res = await fetch(`http://www.omdbapi.com/?apikey=530cd181&s=${SearchValue}`);
+        if (!res.ok) throw new Error("Something went wrong");
+        const data = await res.json();
+        setSeries(data.Search);
+      }catch(err) {
+        console.log(err.message);
+      }
+      }
+      fetchMovie()
   },[SearchValue]
 )
 console.log(Series)
