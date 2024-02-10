@@ -1,38 +1,47 @@
 import "./movie.css"
 
-export default function Movie({Series}){
+export default function Movie({Series,error}){
     return (
         <div id="movie">
-            <RenderMovie Series={Series}/>
+            <RenderMovie Series={Series} error={error}/>
             <Rating/>
         </div>
     )
 }
-function RenderMovie({Series}){
+function RenderMovie({Series,error}){
     return(
-        <div className="movie-component">
-            {
-                Series.map((li)=><List Title={li.Title} Poster={li.Poster} Year={li.Year}/>)
-            }
-            
+        <div className="movie-component" >
+            { Series?<List Series={Series}/>: <notFound/>}
 
         </div>
     )
 }
-function List({Poster,Title,Year}){
+function List({Series}){
     return(
-        <div className="list">
+        <>
+    { Series.map((e)=>
+    <div className="list">
         <div id="list-img">
-            <img src={Poster} alt={Title}/>
+            <img src={e.Poster} alt={e.Title}/>
         </div>
         <div id="move-name-year">
-            <span>{Title}</span>
-            <span>🗓️ {Year}</span>
+            <span>{e.Title}</span>
+            <span>🗓️ {e.Year}</span>
 
         </div>
 
-    </div>
+    </div>)
 
+    }
+    </>
+
+    )
+}
+function notFound(){
+    return(
+        <>
+        <span style={{color:"white"}}>Movie Not Found</span>
+        </>
     )
 }
 function Rating(){

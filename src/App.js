@@ -5,7 +5,10 @@ import Movie from './movie';
 
 function App(){
   const [Series,setSeries]=useState([])
-  const [SearchValue,setSearchValue]=useState()
+  const [SearchValue,setSearchValue]=useState("")
+  const [error,setError] = useState("")
+ 
+
   function normal(e){
     setSearchValue(e)
 
@@ -15,22 +18,30 @@ useEffect(
     async function fetchMovie(){
       try{
         const res = await fetch(`http://www.omdbapi.com/?apikey=530cd181&s=${SearchValue}`);
-        if (!res.ok) throw new Error("Something went wrong");
+        if (!res.ok) 
+          throw new Error("movie not found");
         const data = await res.json();
         setSeries(data.Search);
       }catch(err) {
-        console.log(err.message);
+        console.error(err.message)
+        setError(err.message)
+        
+        
       }
+      if (SearchValue.length < 3) {
+      setSeries([]) 
+      return;
+      }
+    
       }
       fetchMovie()
   },[SearchValue]
 )
-console.log(Series)
 
   return (
     <>
     <Header normal={normal}/>
-    <Movie  Series={Series}/>
+    <Movie  Series={Series} Error={error}/>
     </>
   )
 }
