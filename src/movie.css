@@ -59,3 +59,13 @@ body{
     align-items: flex-start;
     gap: 0.5rem;
 }
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+#not-found {
+    font-family: "Arsenal", sans-serif;
+    font-size: 1.4rem;
+    width: 24rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

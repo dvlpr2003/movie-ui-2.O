@@ -1,17 +1,18 @@
 import "./movie.css"
 
-export default function Movie({Series,error}){
+export default function Movie({Series,error,Load}){
     return (
         <div id="movie">
-            <RenderMovie Series={Series} error={error}/>
+            <RenderMovie Series={Series} error={error} Load={Load}/>
             <Rating/>
         </div>
     )
 }
-function RenderMovie({Series,error}){
+function RenderMovie({Series,error,Load}){
     return(
         <div className="movie-component" >
-            { Series?<List Series={Series}/>: <notFound/>}
+            {Load && <Loading/>}
+            { Series?<List Series={Series}/>: <Found/>}
 
         </div>
     )
@@ -37,11 +38,19 @@ function List({Series}){
 
     )
 }
-function notFound(){
+function Found(){
     return(
-        <>
+        <div id="not-found">
         <span style={{color:"white"}}>Movie Not Found</span>
-        </>
+        </div>
+    )
+}
+function Loading(){
+    return(
+        <div id="not-found">
+        <span style={{color:"white"}}>Loading . . .</span>
+        </div>
+
     )
 }
 function Rating(){
