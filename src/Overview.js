@@ -2,7 +2,11 @@ import "./Overview.css"
 export default function Overview({Name}){
     return(
         <div className="movie-component">
-            <OverviewEle Name={Name}/>
+            {
+            
+            Name?<OverviewEle Name={Name}/>:""
+
+            }
         </div>
     )
 }
@@ -13,7 +17,7 @@ function OverviewEle({Name}){
         <div id="overview-ele">
             <img src={Name.Poster} alt={Name.Title}/>
             <div>
-                <span>{Name.Title}</span>
+                <span style={Name.Title.length <20 ?{fontSize:"1.5rem"}:{fontSize:"0.9rem"}}>{Name.Title}</span>
                 <span>🗓️{Name.Year}</span>
             </div>
 

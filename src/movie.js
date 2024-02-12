@@ -3,7 +3,7 @@ import "./movie.css"
 import Overview from "./Overview"
 
 export default function Movie({Series,Load}){
-    const [Name,setName]=useState()
+const [Name,setName]=useState()
     console.log(Name)
     return (
         <div id="movie">

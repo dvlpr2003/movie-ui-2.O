@@ -1,5 +1,5 @@
 #overview-ele{
-    width: 23rem;
+    width: 24rem;
     height: 30rem;
     display: flex;
     flex-direction: column;
@@ -23,6 +23,10 @@
     gap: 0.5rem;
 }
 #overview-ele div span:first-child {
-    font-size: 1.5rem;
+    font-size: 1rem;
+
+}
+#overview-ele div span:last-child {
+    font-size: 0.9rem;
 
 }
