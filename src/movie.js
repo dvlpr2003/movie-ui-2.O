@@ -4,34 +4,36 @@ import Overview from "./Overview"
 
 export default function Movie({Series,Load}){
 const [Name,setName]=useState()
+const [Number,setNumber]=useState()
+
     console.log(Name)
     return (
         <div id="movie">
-            <RenderMovie Series={Series}  Load={Load} setName={setName} Name={Name}/>
-            <Overview Name ={Name}/>
+            <RenderMovie Series={Series}  Load={Load} setName={setName} Name={Name} setNumber={setNumber}/>
+            <Overview Name ={Name} setNumber={setNumber} Number={Number}/>
         </div>
     )
 }
-function RenderMovie({Series,Load,setName,Name}){
+function RenderMovie({Series,Load,setName,Name,setNumber}){
     return(
         <div className="movie-component" >
             {Load && <Loading/>}
-            { Series?<List Series={Series} setName={setName} Name={Name}/>: <Found/>}
+            { Series?<List Series={Series} setName={setName} Name={Name} setNumber={setNumber}/>: <Found/>}
         </div>
     )
 }
-function List({Series,setName,Name}){
+function List({Series,setName,Name,setNumber}){
 
     return(
         <>
-    { Series.map((e)=><Items Title ={e.Title} Poster={e.Poster} Year={e.Year} setName={setName} Name={Name}/>)
+    { Series.map((e)=><Items Title ={e.Title} Poster={e.Poster} Year={e.Year} setName={setName} Name={Name} setNumber={setNumber}/>)
 
     }
     </>
 
     )
 }
-function Items({Title,Poster,Year,setName,Name}){
+function Items({Title,Poster,Year,setName,Name,setNumber}){
     const Ftc ={
         Title:Title,
         Poster:Poster,
@@ -39,6 +41,7 @@ function Items({Title,Poster,Year,setName,Name}){
     }
     function getName(){
         setName(Ftc)
+        setNumber()
    
     }
     return(
