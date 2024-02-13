@@ -5,12 +5,13 @@ import Overview from "./Overview"
 export default function Movie({Series,Load}){
 const [Name,setName]=useState()
 const [Number,setNumber]=useState()
+const [warning,setWarning]=useState("")
 
-    console.log(Name)
+
     return (
         <div id="movie">
             <RenderMovie Series={Series}  Load={Load} setName={setName} Name={Name} setNumber={setNumber}/>
-            <Overview Name ={Name} setNumber={setNumber} Number={Number}/>
+            <Overview Name ={Name} setNumber={setNumber} Number={Number} warning={warning} setWarning={setWarning}/>
         </div>
     )
 }
