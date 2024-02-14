@@ -33,7 +33,10 @@ function Search({normal}){
 function Found(){
     return (
         <div id="found">
-            <span>Found 0 top results</span>
+            <img src="img/watchlist.png" alt="watch list"/>
+            <div id="count">
+                <span>1</span>
+            </div>
         </div>
     )
 }
