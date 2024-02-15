@@ -1,14 +1,14 @@
 import "./Header.css"
 
 
-export default function Header({normal}){
+export default function Header({normal,Count,setDrop}){
 
 
     return (
         <div id="Header-nav">
             <Logo/>
             <Search normal = {normal} />
-            <Found />
+            <Found Count={Count} setDrop={setDrop}/>
 
         </div>
     )
@@ -30,12 +30,16 @@ function Search({normal}){
         </div>
     )
 }
-function Found(){
+function Found({Count,setDrop}){
+    function Dp(){
+        setDrop((e)=>!e)
+    }
+
     return (
-        <div id="found">
+        <div id="found" onClick={Dp}>
             <img src="img/watchlist.png" alt="watch list"/>
             <div id="count">
-                <span>1</span>
+                <span>{Count}</span>
             </div>
         </div>
     )

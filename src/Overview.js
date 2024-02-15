@@ -5,11 +5,26 @@ import {Warning,Success}from "./warning"
 const delay = ms => new Promise(
     resolve => setTimeout(resolve, ms)
   );
-export default function Overview({Name,Number,setNumber,warning,setWarning}){
+export default function Overview({
+    Name,
+    Number,
+    setNumber,
+    warning,
+    setWarning,
+    setAdd,
+    Add,
+}){
     return(
         <div className="movie-component" id="ovr">
             {
-            Name?<OverviewEle Name={Name} setNumber={setNumber} Number={Number} setWarning={setWarning}/>:""
+            Name?<OverviewEle Name={Name} 
+            setNumber={setNumber} 
+            Number={Number} 
+            setWarning={setWarning} 
+            setAdd={setAdd}
+            Add={Add}
+            />
+            :""
             }
             <Warning warning={warning}/>
             <Success warning={warning}/>
@@ -19,7 +34,15 @@ export default function Overview({Name,Number,setNumber,warning,setWarning}){
 }
 
 
-function OverviewEle({Name,setNumber,Number,setWarning}){
+function OverviewEle({Name,setNumber,Number,setWarning,setAdd,Add}){
+    let addList_value ={
+        title:Name.Title,
+        image:Name.Poster,
+        year:Name.Year,
+        rating:Number
+    }
+
+
     // delay function applied
     async function ADDbtn(){
         if (!Number){
@@ -29,8 +52,18 @@ function OverviewEle({Name,setNumber,Number,setWarning}){
             return;
         }
         setWarning("success")
+        let confirm = Add.findIndex((item)=>item.title === addList_value.title);
+        if(confirm !== -1){
+            setAdd((e)=>[...e])
+        }
+        else{
+            setAdd((e)=>[...e,addList_value])
+        }
         await delay(3000)
         setWarning("")
+        
+        
+
 
 
     }

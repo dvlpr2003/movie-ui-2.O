@@ -1,5 +1,6 @@
 body{
     background-color: black;
+    position: relative;
 }
 #movie{
     background-color: black;
@@ -69,4 +70,52 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+#add{
+    font-family: "Cabin", sans-serif;
+    border: 1px solid white;
+    width: 25rem;
+    height: 30rem;
+    position: absolute;
+    top: 4rem;
+    right: 1.5rem;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    overflow-y:scroll ;
+    overflow-x: hidden;
+    
+}
+#add-list {
+    display: flex;
+    border-bottom: 1px solid rgb(168, 168, 168);
+    padding-bottom:1rem ;
+    width: 20rem;
+    gap: 2rem;
+
+
+}
+#add-rating {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.2rem;
+}
+#add-list img {
+    height: 5rem;
+    width: 5rem;
+}
+#add-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+}
+#e-6{
+    stroke: green;
 }

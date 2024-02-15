@@ -8,6 +8,8 @@ function App(){
   const [SearchValue,setSearchValue]=useState("")
   const [error,setError] = useState("")
   const [Load,setLoad] = useState(false)
+  const [Count,setCount]=useState()
+  const [Drop,setDrop]=useState(false)
  
 
   function normal(e){
@@ -43,8 +45,8 @@ useEffect(
 
   return (
     <>
-    <Header normal={normal}/>
-    <Movie  Series={Series} Error={error} Load = {Load}/>
+    <Header normal={normal} Count={Count} setDrop={setDrop}/>
+    <Movie  Series={Series} Error={error} Load = {Load} setCount={setCount} Drop={Drop}/>
     </>
   )
 }
