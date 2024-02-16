@@ -76,7 +76,7 @@ body{
     font-family: "Cabin", sans-serif;
     border: 1px solid white;
     width: 25rem;
-    height: 30rem;
+    height: 38rem;
     position: absolute;
     top: 4rem;
     right: 1.5rem;
@@ -118,4 +118,5 @@ body{
 }
 #e-6{
     stroke: green;
+
 }
