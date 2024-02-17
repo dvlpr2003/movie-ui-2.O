@@ -5,7 +5,7 @@ export default function Header({normal,Count,setDrop}){
 
 
     return (
-        <div id="Header-nav">
+        <div id="Header-nav" >
             <Logo/>
             <Search normal = {normal} />
             <Found Count={Count} setDrop={setDrop}/>
@@ -16,7 +16,7 @@ export default function Header({normal,Count,setDrop}){
 function Logo(){
     return (
         <div id="logo-container">
-            <img src="img/pop.png" id="pop-img"/>
+            <img src="img/pop.png" alt ="LOGO"id="pop-img"/>
             <span>usePopcorn</span>
 
         </div>

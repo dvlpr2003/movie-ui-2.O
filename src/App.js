@@ -38,7 +38,7 @@ useEffect(
   return (
     <>
     <Header normal={normal} Count={Count} setDrop={setDrop}/>
-    <Movie  Series={Series} Error={error} Load = {Load} setCount={setCount} Drop={Drop}/>
+    <Movie  Series={Series} Error={error} Load = {Load} setCount={setCount} Drop={Drop} setDrop={setDrop}/>
     </>
   )
 }

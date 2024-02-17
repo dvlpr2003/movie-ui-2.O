@@ -84,7 +84,7 @@ body{
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
     flex-wrap: wrap;
     overflow-y:scroll ;
@@ -94,6 +94,7 @@ body{
 #add-list {
     display: flex;
     border-bottom: 1px solid rgb(168, 168, 168);
+    margin-top: 1rem;
     padding-bottom:1rem ;
     width: 20rem;
     gap: 2rem;
@@ -109,6 +110,7 @@ body{
 #add-list img {
     height: 5rem;
     width: 5rem;
+    border-radius: 10px;
 }
 #add-list-item {
     display: flex;

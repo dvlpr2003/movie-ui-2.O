@@ -2,16 +2,20 @@ import { useState } from "react"
 import "./movie.css"
 import Overview from "./Overview"
 
-export default function Movie({Series,Load,setCount,Drop}){
+export default function Movie({Series,Load,setCount,Drop,setDrop}){
 const [Name,setName]=useState()
 const [Number,setNumber]=useState()
 const [warning,setWarning]=useState("")
 const [Add,setAdd]=useState([])
 let addLength=Add.length;
 setCount(addLength)
+function Close(){
+    setDrop()
+}
+
 
     return (
-        <div id="movie">
+        <div id="movie" onClick={Close} >
             <RenderMovie 
             Series={Series}  
             Load={Load} 
@@ -109,9 +113,12 @@ function Added({Add,Drop}){
     return (
         <div style={Drop?{display:"block"}:{display:"none"}}>
         <div id="add" >
+        <div id="container-1">
+
             {
                 Add.map((e)=><AddList title={e.title} image ={e.image} rating={e.rating} year={e.year}/>)
             }
+        </div>
         </div>
         </div>
     )
@@ -121,7 +128,7 @@ function Added({Add,Drop}){
 function AddList({title,image,rating,year}){
     return(
         <div id="add-list">
-            <img src={image}/>
+            <img src={image} alt={title}/>
             <div id="add-list-item">
                 <span>{title}</span>
                 <span>{year}</span>
