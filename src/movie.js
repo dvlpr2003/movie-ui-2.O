@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./movie.css"
 import Overview from "./Overview"
 
@@ -8,6 +8,7 @@ const [Number,setNumber]=useState()
 const [warning,setWarning]=useState("")
 const [Add,setAdd]=useState([])
 let addLength=Add.length;
+
 setCount(addLength)
 function Close(){
     setDrop()
@@ -59,7 +60,7 @@ function List({Series,setName,Name,setNumber}){
 
     )
 }
-function Items({Title,Poster,Year,setName,Name,setNumber}){
+function Items({Title,Poster,Year,setName,setNumber,Name}){
     const Ftc ={
         Title:Title,
         Poster:Poster,
@@ -70,6 +71,13 @@ function Items({Title,Poster,Year,setName,Name,setNumber}){
         setNumber()
    
     }
+
+    // Title Update Effect
+    useEffect(function(){
+        document.title=`Movie | ${Name.Title}`
+    
+    },[Name])
+
     return(
         <div className="list" onClick={getName}>
         <div id="list-img">
