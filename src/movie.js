@@ -74,9 +74,12 @@ function Items({Title,Poster,Year,setName,setNumber,Name}){
 
     // Title Update Effect
     useEffect(function(){
-        document.title=`Movie | ${Name.Title}`
+        if (!Name) return;
+        document.title=`${Name.Title}`
     
     },[Name])
+
+
 
     return(
         <div className="list" onClick={getName}>
