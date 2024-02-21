@@ -110,16 +110,7 @@ function Loading(){
 
     )
 }
-
-// let Check = Name.findIndex((it)=>it.Title===Ftc.Title)
-// // if the condition is satisfied then it will returns 3 ,otherwise it returns -1
-// if(Check == -1){
-//     setName((e)=>[...e,Ftc])
-
-// }
-// else{
-//     setName((e)=>[...e])
-// }
+// fucking code !!!
 function Added({Add,Drop}){
     return (
         <div style={Drop?{display:"block"}:{display:"none"}}>
