@@ -18,7 +18,6 @@ useEffect (function(){
     document.addEventListener("keydown",function(e){
       if (e.code === "Escape"){
       setName(null)
-      console.log("Closed")
       }
     })
 
