@@ -13,8 +13,18 @@ setCount(addLength)
 function Close(){
     setDrop()
 }
+// EventListerner Function
+useEffect (function(){
+    document.addEventListener("keydown",function(e){
+      if (e.code === "Escape"){
+      setName(null)
+      console.log("Closed")
+      }
+    })
 
 
+// 
+  },[setName])
     return (
         <div id="movie" onClick={Close} >
             <RenderMovie 
@@ -129,7 +139,7 @@ function Added({Add,Drop}){
 
 function AddList({title,image,rating,year}){
     return(
-        <div id="add-list">
+        <div id="add-list" >
             <img src={image} alt={title}/>
             <div id="add-list-item">
                 <span>{title}</span>

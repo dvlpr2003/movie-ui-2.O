@@ -35,6 +35,7 @@ useEffect(
       fetchMovie()
   },[SearchValue]
 )
+
   return (
     <>
     <Header normal={normal} Count={Count} setDrop={setDrop}/>
