@@ -4,15 +4,26 @@ import Overview from "./Overview"
 
 export default function Movie({Series,Load,setCount,Drop,setDrop}){
 const [Name,setName]=useState()
-const [Number,setNumber]=useState()
+const [number,setnumber]=useState()
 const [warning,setWarning]=useState("")
-const [Add,setAdd]=useState([])
+
+
+// const [Add,setAdd]=useState([])
+const [Add,setAdd]=useState(function(){
+    const Value = localStorage.getItem("items")
+    return JSON.parse(Value);
+})
+console.log(Add)
+useEffect(function(){
+    localStorage.setItem("items",JSON.stringify(Add))
+},[Add])
+
 let addLength=Add.length;
 
-setCount(addLength)
 function Close(){
     setDrop()
 }
+setCount(addLength)
 // EventListerner Function
 useEffect (function(){
     document.addEventListener("keydown",function(e){
@@ -31,12 +42,12 @@ useEffect (function(){
             Load={Load} 
             setName={setName}
             Name={Name} 
-            setNumber={setNumber}
+            setnumber={setnumber}
             />
             <Overview 
             Name ={Name} 
-            setNumber={setNumber} 
-            Number={Number} 
+            setnumber={setnumber} 
+            number={number} 
             warning={warning} 
             setWarning={setWarning}
             setAdd={setAdd}
@@ -50,26 +61,26 @@ useEffect (function(){
         </div>
     )
 }
-function RenderMovie({Series,Load,setName,Name,setNumber}){
+function RenderMovie({Series,Load,setName,Name,setnumber}){
     return(
         <div className="movie-component" >
             {Load && <Loading/>}
-            { Series?<List Series={Series} setName={setName} Name={Name} setNumber={setNumber}/>: <Found/>}
+            { Series?<List Series={Series} setName={setName} Name={Name} setnumber={setnumber}/>: <Found/>}
         </div>
     )
 }
-function List({Series,setName,Name,setNumber}){
+function List({Series,setName,Name,setnumber}){
 
     return(
         <>
-    { Series.map((e)=><Items Title ={e.Title} Poster={e.Poster} Year={e.Year} setName={setName} Name={Name} setNumber={setNumber}/>)
+    { Series.map((e)=><Items Title ={e.Title} Poster={e.Poster} Year={e.Year} setName={setName} Name={Name} setnumber={setnumber}/>)
 
     }
     </>
 
     )
 }
-function Items({Title,Poster,Year,setName,setNumber,Name}){
+function Items({Title,Poster,Year,setName,setnumber,Name}){
     const Ftc ={
         Title:Title,
         Poster:Poster,
@@ -77,7 +88,7 @@ function Items({Title,Poster,Year,setName,setNumber,Name}){
     }
     function getName(){
         setName(Ftc)
-        setNumber()
+        setnumber()
    
     }
 
@@ -155,4 +166,3 @@ function AddList({title,image,rating,year}){
         </div>
     )
 }
-
