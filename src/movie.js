@@ -9,6 +9,7 @@ const [warning,setWarning]=useState("")
 
 
 // const [Add,setAdd]=useState([])
+// localstorage start
 const [Add,setAdd]=useState(function(){
     const Value = localStorage.getItem("items")
     return JSON.parse(Value);
@@ -17,7 +18,7 @@ console.log(Add)
 useEffect(function(){
     localStorage.setItem("items",JSON.stringify(Add))
 },[Add])
-
+// localstorage end
 let addLength=Add.length;
 
 function Close(){
