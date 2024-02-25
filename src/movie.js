@@ -8,24 +8,24 @@ const [number,setnumber]=useState()
 const [warning,setWarning]=useState("")
 
 
-const [Add,setAdd]=useState([])
 // localstorage start
-// const [Add,setAdd]=useState(function(){
-//     const Value = localStorage.getItem("items")
-//     return JSON.parse(Value);
-// })
-// useEffect(function(){
-//     localStorage.setItem("items",JSON.stringify(Add))
-// },[Add])
-// localstorage 
-let addLength=Add.length;
-console.log(`num : ${addLength}`)
+const [Add,setAdd]=useState(function(){
+    const Value = localStorage.getItem("items")
+    return JSON.parse(Value);
+})
+console.log(Boolean(Add))
+
+useEffect(function(){
+    localStorage.setItem("items",JSON.stringify(Add))
+},[Add])
+// localstorage end
+let addLength=Boolean(Add)&&Add.length;
+setCount(addLength)
 
 function Close(){
     setDrop()
 }
-setCount(addLength)
-// EventListerner Function
+// EventListerner Function start
 useEffect (function(){
     document.addEventListener("keydown",function(e){
       if (e.code === "Escape"){
@@ -34,7 +34,7 @@ useEffect (function(){
     })
 
 
-// 
+// EventListerner Function End
   },[setName])
     return (
         <div id="movie" onClick={Close} >
@@ -52,7 +52,7 @@ useEffect (function(){
             warning={warning} 
             setWarning={setWarning}
             setAdd={setAdd}
-            Add={Add}
+            Add={Boolean(Add)?Add:[]}
 
             />
             <Added 
@@ -139,7 +139,7 @@ function Added({Add,Drop}){
         <div id="container-1">
 
             {
-                Add.map((e)=><AddList title={e.title} image ={e.image} rating={e.rating} year={e.year}/>)
+                Boolean(Add)&&Add.map((e)=><AddList title={e.title} image ={e.image} rating={e.rating} year={e.year}/>)
             }
         </div>
         </div>
