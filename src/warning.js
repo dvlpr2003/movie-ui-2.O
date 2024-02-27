@@ -5,6 +5,8 @@ function Warning({warning}){
             <div>
             <p>Rating fields is empty</p>
             </div>
+
+            
         </div>
     )
 }
