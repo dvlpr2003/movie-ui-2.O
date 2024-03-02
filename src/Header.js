@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react"
 import "./Header.css"
 
 
@@ -23,10 +24,19 @@ function Logo(){
     )
 }
 function Search({normal}){
-   
+    const inputElement=useRef(null)
+    useEffect(function(){
+        inputElement.current.focus();
+
+    },[])
+
     return(
         <div id="search-box">
-            <input placeholder="Search movie . . ." onChange={(e)=>normal(e.target.value)}/>
+            <input  
+            placeholder="Search movie . . ." 
+            onChange={(e)=>normal(e.target.value)} 
+            ref={inputElement}
+            />
         </div>
     )
 }
